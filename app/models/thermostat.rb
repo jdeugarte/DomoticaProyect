@@ -5,6 +5,8 @@ class Thermostat < ActiveRecord::Base
 	validates_presence_of :serial_number,:temperature, :configuration, :place
 	has_many :temperatures
 	has_many :schedules
+	has_one :contry_name
+	has_many :observations
 	
 
 	def get_valor(dia,franja, t_id)

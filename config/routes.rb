@@ -1,4 +1,7 @@
 DomoticaProyect::Application.routes.draw do
+  get '/observations/new/:thermostat_id' => 'observations#new'
+  resources :observations
+
   resources :country_names
 
   get 'issues/cancel' => 'issues#cancel'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  thermostat_id: 
+  text: MyText
+  user_id: 
+  like: 1
+
+two:
+  thermostat_id: 
+  text: MyText
+  user_id: 
+  like: 1

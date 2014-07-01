@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Thermostat:</strong>
+  <%= @observation.thermostat %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @observation.text %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @observation.user %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <%= @observation.like %>
+</p>
+
+<%= link_to 'Edit', edit_observation_path(@observation) %> |
+<%= link_to 'Back', observations_path %>

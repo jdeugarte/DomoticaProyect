@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701174652) do
+ActiveRecord::Schema.define(version: 20140701182941) do
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 20140701174652) do
     t.string   "region"
   end
 
+  create_table "observations", force: true do |t|
+    t.integer  "thermostat_id"
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "like"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "observations", ["thermostat_id"], name: "index_observations_on_thermostat_id"
+  add_index "observations", ["user_id"], name: "index_observations_on_user_id"
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -106,8 +118,18 @@ ActiveRecord::Schema.define(version: 20140701174652) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "thermostats" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "thermostats", force: true do |t|
+    t.integer  "serial_number"
+    t.integer  "location_id"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "temperature"
+    t.string   "configuration"
+    t.integer  "country_name_id"
+  end
+
+  add_index "thermostats", ["country_name_id"], name: "index_thermostats_on_country_name_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",        null: false
