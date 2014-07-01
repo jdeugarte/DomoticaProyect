@@ -1,0 +1,29 @@
+<h1>Listing country_names</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @country_names.each do |country_name| %>
+      <tr>
+        <td><%= country_name.name %></td>
+        <td><%= country_name.code %></td>
+        <td><%= link_to 'Show', country_name %></td>
+        <td><%= link_to 'Edit', edit_country_name_path(country_name) %></td>
+        <td><%= link_to 'Destroy', country_name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Country name', new_country_name_path %>

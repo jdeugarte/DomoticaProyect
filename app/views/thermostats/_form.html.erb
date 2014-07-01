@@ -37,6 +37,11 @@
   </fieldset>
   </div>
 
+   <div class="field">
+    <%= f.label "Pais" %><br>
+    <%= f.select :country_name_id, options_for_select(@country_names.map {|x| [x.name ,x.id]})%>
+  </div>
+
   <div class="actions">
     <%= f.submit "Aceptar" %>
   </div>

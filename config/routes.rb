@@ -1,4 +1,6 @@
 DomoticaProyect::Application.routes.draw do
+  resources :country_names
+
   get 'issues/cancel' => 'issues#cancel'
   get 'issues/:id/resolve' =>'issues#resolve'
   patch 'issues/:id/resolve' =>'issues#solve'
@@ -64,7 +66,7 @@ DomoticaProyect::Application.routes.draw do
   resources :locations do
     resources :thermostats  
   end
-
+  get 'thermostats/admin_index/:location_id' => 'thermostats#admin_index'
 
 
   #get '/locations/:location_id/thermostats/readings/:id' => 'thermostats#show_readings'

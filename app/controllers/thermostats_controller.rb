@@ -42,6 +42,7 @@ class ThermostatsController < ApplicationController
   # GET /thermostats/new
   def new
     @thermostat = Thermostat.new
+    @country_names = CountryName.all
   end
 
   # GET /thermostats/1/edit
@@ -103,7 +104,10 @@ class ThermostatsController < ApplicationController
     @thermostat = Thermostat.find(params[:id])
   end
 
- 
+  def admin_index
+    @thermostats= Thermostat.all
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -116,13 +120,14 @@ class ThermostatsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def thermostat_params
-    params.require(:thermostat).permit(:serial_number, :location_id,:place, :temperature, :configuration)
+    params.require(:thermostat).permit(:serial_number, :location_id,:place, :temperature, :configuration, :country_name_id)
   end
 
   def temperature_params
      params.require(:thermostat).permit(:temperature, :configuration)
 
   end
+
 
   #def show_configureTemp
   #   @thermostat = Post.find(params[:id])

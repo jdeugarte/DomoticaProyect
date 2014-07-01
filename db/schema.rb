@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629213709) do
+ActiveRecord::Schema.define(version: 20140701174652) do
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20140629213709) do
     t.datetime "updated_at"
   end
 
-  create_table "days", force: true do |t|
+  create_table "country_names", force: true do |t|
     t.string   "name"
-    t.integer  "temperatures_id"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,23 +106,8 @@ ActiveRecord::Schema.define(version: 20140629213709) do
     t.datetime "updated_at"
   end
 
-  create_table "thermostats", force: true do |t|
-    t.integer  "serial_number"
-    t.integer  "location_id"
-    t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "temperature"
-    t.string   "configuration"
-  end
-
-  create_table "triples", force: true do |t|
-    t.time     "start_time"
-    t.time     "end_time"
-    t.integer  "days_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "thermostats" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",        null: false
